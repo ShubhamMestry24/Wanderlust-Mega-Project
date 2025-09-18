@@ -1,7 +1,11 @@
 @Library('Shared') _
 pipeline {
     agent any
-    
+
+    options{
+        skipDefaultCheckout(true) // avoid Jenkins doing implicit checkout
+    }
+
     environment{
         SONAR_HOME = tool "Sonar"
     }
