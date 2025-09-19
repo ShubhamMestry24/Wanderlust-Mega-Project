@@ -121,9 +121,6 @@ pipeline {
         }
 
         stage("Trigger CD Pipeline"){
-            when{
-                success()
-            }
             steps{
                 archiveArtifacts artifacts: '.xml', followSymlinks: false
                 build job: 'Wanderlust-CD', wait: false, parameters: [
