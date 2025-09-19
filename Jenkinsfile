@@ -122,7 +122,7 @@ pipeline {
 
         stage("Trigger CD Pipeline"){
             steps{
-                archiveArtifacts artifacts: '.xml', followSymlinks: false
+                archiveArtifacts artifacts: '*.xml', followSymlinks: false
                 build job: 'Wanderlust-CD', wait: false, parameters: [
                     string(name: 'FRONTEND_DOCKER_TAG', value: "${params.FRONTEND_DOCKER_TAG}"),
                     string(name: 'BACKEND_DOCKER_TAG', value: "${params.BACKEND_DOCKER_TAG}")
